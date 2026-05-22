@@ -1,0 +1,26 @@
+{
+  "name": "veltis-peptides-blog",
+  "version": "1.0.0",
+  "description": "SEO Blog Platform - Veltis Peptides",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "setup": "node scripts/setup.js"
+  },
+  "dependencies": {
+    "next": "^14.0.0",
+    "@next/mdx": "^14.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@google/analytics": "^0.2.2",
+    "gray-matter": "^4.0.3",
+    "rss": "^1.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.2.0",
+    "typescript": "^5.0.0"
+  }
+}
