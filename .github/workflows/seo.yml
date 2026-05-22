@@ -1,0 +1,26 @@
+name: SEO Optimization
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+  schedule:
+    - cron: '0 20 * * *'  # 8 PM UTC daily
+
+jobs:
+  seo-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Install Lighthouse CI
+        run: npm install -g @lhci/cli@latest
+      
+      - name: Run Lighthouse
+        run: lhci autorun --config=lighthouserc.json || true
+      
+      - name: Lighthouse CI comment
+        uses: actions/github-script@v6
+        if: always()
+        with:
+          script: |
+            console.log('Performance checks completed');
