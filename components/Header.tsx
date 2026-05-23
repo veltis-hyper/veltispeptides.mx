@@ -30,6 +30,12 @@ export default function Header() {
               Blog
             </Link>
             <Link
+              href="/calculadora"
+              className="text-purple-300 hover:text-white transition font-medium text-xs uppercase tracking-[0.15em]"
+            >
+              Calculadora
+            </Link>
+            <Link
               href="https://www.veltispeptides.mx/productos"
               className="text-purple-300 hover:text-white transition font-medium text-xs uppercase tracking-[0.15em]"
             >
@@ -91,6 +97,13 @@ export default function Header() {
               className="text-purple-200 hover:text-white transition font-semibold text-sm uppercase tracking-wider"
             >
               Blog
+            </Link>
+            <Link
+              href="/calculadora"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-purple-300 hover:text-white transition font-medium text-sm uppercase tracking-wider"
+            >
+              Calculadora
             </Link>
             <Link
               href="https://www.veltispeptides.mx/productos"
