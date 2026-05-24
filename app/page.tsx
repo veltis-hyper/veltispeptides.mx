@@ -2,6 +2,7 @@ import Link from 'next/link'
 import { getAllPosts } from '@/lib/posts'
 import Header from '@/components/Header'
 import AIChatbot from '@/components/AIChatbot'
+import NewsletterCapture from '@/components/NewsletterCapture'
 
 export default async function Home() {
   const posts = await getAllPosts()
@@ -114,6 +115,11 @@ export default async function Home() {
             </article>
           ))}
         </div>
+      </section>
+
+      {/* Lead Capture Newsletter Section */}
+      <section className="max-w-6xl mx-auto px-6 pb-12">
+        <NewsletterCapture />
       </section>
 
       {/* Compliance / Laboratory Disclaimer Section */}

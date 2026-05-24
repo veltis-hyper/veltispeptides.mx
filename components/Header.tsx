@@ -22,10 +22,10 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation - Placed Immediately to the Right of the Logo */}
-          <nav className="hidden md:flex items-center gap-8 pl-4 border-l border-purple-500/20">
+          <nav className="hidden lg:flex items-center gap-6 pl-4 border-l border-purple-500/20">
             <Link
               href="/"
-              className="text-purple-200 hover:text-white transition font-semibold text-xs uppercase tracking-[0.18em]"
+              className="text-purple-200 hover:text-white transition font-semibold text-xs uppercase tracking-[0.15em]"
             >
               Blog
             </Link>
@@ -34,6 +34,18 @@ export default function Header() {
               className="text-purple-300 hover:text-white transition font-medium text-xs uppercase tracking-[0.15em]"
             >
               Calculadora
+            </Link>
+            <Link
+              href="/protocolos"
+              className="text-purple-300 hover:text-white transition font-medium text-xs uppercase tracking-[0.15em]"
+            >
+              Protocolos
+            </Link>
+            <Link
+              href="/afiliados"
+              className="text-purple-300 hover:text-white transition font-medium text-xs uppercase tracking-[0.15em]"
+            >
+              Embajadores
             </Link>
             <Link
               href="https://www.veltispeptides.mx/productos"
@@ -65,10 +77,10 @@ export default function Header() {
             Adquirir Moléculas
           </Link>
 
-          {/* Mobile Menu Button */}
+           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-purple-300 hover:text-white transition p-2 focus:outline-none"
+            className="lg:hidden text-purple-300 hover:text-white transition p-2 focus:outline-none"
           >
             <svg
               className="w-6 h-6"
@@ -89,7 +101,7 @@ export default function Header() {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-black/95 border-b border-purple-500/20 px-6 py-4 space-y-4 animate-fade-in">
+        <div className="lg:hidden bg-black/95 border-b border-purple-500/20 px-6 py-4 space-y-4 animate-fade-in">
           <nav className="flex flex-col gap-4">
             <Link
               href="/"
@@ -104,6 +116,20 @@ export default function Header() {
               className="text-purple-300 hover:text-white transition font-medium text-sm uppercase tracking-wider"
             >
               Calculadora
+            </Link>
+            <Link
+              href="/protocolos"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-purple-300 hover:text-white transition font-medium text-sm uppercase tracking-wider"
+            >
+              Protocolos
+            </Link>
+            <Link
+              href="/afiliados"
+              onClick={() => setMobileMenuOpen(false)}
+              className="text-purple-300 hover:text-white transition font-medium text-sm uppercase tracking-wider"
+            >
+              Embajadores
             </Link>
             <Link
               href="https://www.veltispeptides.mx/productos"

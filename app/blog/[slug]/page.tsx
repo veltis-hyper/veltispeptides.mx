@@ -3,6 +3,7 @@ import { MDXRemote } from 'next-mdx-remote/rsc'
 import Link from 'next/link'
 import Header from '@/components/Header'
 import AIChatbot from '@/components/AIChatbot'
+import NewsletterCapture from '@/components/NewsletterCapture'
 
 export async function generateStaticParams() {
   const posts = await getAllPosts()
@@ -118,6 +119,11 @@ export default async function BlogPost({ params }: { params: { slug: string } })
           </p>
         </div>
       </article>
+
+      {/* Lead Capture Newsletter */}
+      <section className="max-w-4xl mx-auto px-6 pb-12">
+        <NewsletterCapture />
+      </section>
 
       {/* Footer */}
       <footer className="border-t border-purple-500/10 bg-black/60 backdrop-blur-md py-8 mt-12">

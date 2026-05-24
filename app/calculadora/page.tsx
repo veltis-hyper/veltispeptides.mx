@@ -19,6 +19,25 @@ export default function CalculadoraReconstitucion() {
   const [syringeUnits, setSyringeUnits] = useState<number>(0)
   const [concentration, setConcentration] = useState<number>(0)
 
+  const [copied, setCopied] = useState<boolean>(false)
+
+  const handleCopyProtocol = () => {
+    const actualVialSize = isCustomVial ? parseFloat(vialSizeCustom) || 0 : vialSize
+    const text = `🧪 *Protocolo de Dilución Científica Veltis* 🧪
+- Compuesto Liofilizado: ${actualVialSize} mg
+- Agua Bacteriostática: ${waterVolume} ml
+- Dosis de Investigación Deseada: ${desiredDose} mcg
+- Volumen Líquido Resultante: ${volumeMl.toFixed(3)} ml
+- Concentración: ${(concentration / 1000).toFixed(1)} mg/ml
+👉 *CARGAR EN JERINGA:* *${syringeUnits.toFixed(1)} Unidades* (Jeringa U-${syringeSize})
+
+📐 Calcula tu protocolo gratis y con precisión en: https://veltispeptides.mx/calculadora`
+
+    navigator.clipboard.writeText(text)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2000)
+  }
+
   // Presets
   const vialPresets = [2, 5, 10]
 
@@ -276,6 +295,72 @@ export default function CalculadoraReconstitucion() {
                       {(concentration / 1000).toFixed(1)} mg/ml
                     </span>
                   </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Share Protocol Card (Viral Loop) */}
+            <div className="bg-gradient-to-b from-purple-950/20 to-black/60 border border-purple-500/20 rounded-3xl p-5 backdrop-blur-xl shadow-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-20 h-20 rounded-full bg-purple-500/5 blur-[45px] pointer-events-none" />
+              
+              <h3 className="text-xs uppercase tracking-wider text-purple-300 font-bold mb-2.5 flex items-center gap-1.5">
+                <span>🔗</span> Compartir Protocolo Científico
+              </h3>
+              <p className="text-[11px] text-purple-200/70 leading-relaxed mb-4">
+                Exporta y comparte los resultados exactos de dilución con tu equipo de investigación o foros de análisis.
+              </p>
+              
+              <div className="flex flex-col gap-2.5">
+                <button
+                  onClick={handleCopyProtocol}
+                  className={`w-full py-2.5 rounded-xl border text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer ${
+                    copied
+                      ? 'bg-green-950/40 border-green-500/40 text-green-400'
+                      : 'bg-purple-950/30 border-purple-500/30 text-purple-300 hover:border-purple-500/60 hover:text-white hover:bg-purple-900/20'
+                  }`}
+                >
+                  {copied ? (
+                    <>
+                      <span>✓</span> ¡Copiado al Portapapeles!
+                    </>
+                  ) : (
+                    <>
+                      <span>📋</span> Copiar Protocolo Formateado
+                    </>
+                  )}
+                </button>
+
+                <div className="grid grid-cols-3 gap-2">
+                  <a
+                    href={`https://api.whatsapp.com/send?text=${encodeURIComponent(
+                      `🧪 Calculé mi protocolo de dilución con precisión de laboratorio usando Veltis Peptides. Échale un ojo: https://veltispeptides.mx/calculadora`
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-green-950/20 hover:bg-green-900/30 border border-green-500/20 hover:border-green-500/40 text-green-400 font-bold text-[9px] uppercase py-2.5 rounded-xl text-center transition duration-200"
+                  >
+                    WhatsApp
+                  </a>
+                  <a
+                    href={`https://t.me/share/url?url=https://veltispeptides.mx/calculadora&text=${encodeURIComponent(
+                      `🧪 Calculadora interactiva de reconstitución de precisión 3D para viales de investigación.`
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-sky-950/20 hover:bg-sky-900/30 border border-sky-500/20 hover:border-sky-500/40 text-sky-400 font-bold text-[9px] uppercase py-2.5 rounded-xl text-center transition duration-200"
+                  >
+                    Telegram
+                  </a>
+                  <a
+                    href={`https://twitter.com/intent/tweet?url=https://veltispeptides.mx/calculadora&text=${encodeURIComponent(
+                      `Evita errores de dilución en tus viales liofilizados con el simulador matemático interactivo 3D.`
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-purple-950/10 hover:bg-purple-950/20 border border-purple-500/20 hover:border-purple-500/40 text-purple-300 font-bold text-[9px] uppercase py-2.5 rounded-xl text-center transition duration-200"
+                  >
+                    Twitter / X
+                  </a>
                 </div>
               </div>
             </div>
