@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Veltis peptide molecule illustration">
+  <title>Veltis · Estructura peptídica</title>
+  <desc>Cadena peptídica esquemática con anillos hexagonales y residuos de aminoácidos, en paleta teal Veltis sobre fondo crema.</desc>
+  <defs>
+    <linearGradient id="bg-cream" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F4F1EC"/>
+      <stop offset="55%" stop-color="#EDE9E2"/>
+      <stop offset="100%" stop-color="#E5DFD5"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="55%" cy="42%" r="55%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.55"/>
+      <stop offset="70%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="atom-fill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#5FB6A8"/>
+      <stop offset="100%" stop-color="#2E7C70"/>
+    </linearGradient>
+    <linearGradient id="atom-light" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8F3F0"/>
+      <stop offset="100%" stop-color="#BFDED7"/>
+    </linearGradient>
+    <pattern id="hex-bg" x="0" y="0" width="56" height="48.5" patternUnits="userSpaceOnUse">
+      <polygon points="28,2 52,16 52,33 28,47 4,33 4,16" fill="none" stroke="#3A9A8F" stroke-width="0.5" opacity="0.10"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bg-cream)"/>
+  <rect width="800" height="600" fill="url(#hex-bg)"/>
+  <rect width="800" height="600" fill="url(#halo)"/>
+
+  <!-- Hexagonal ring (aromatic residue) top-left -->
+  <g transform="translate(180 150)" stroke="#2E7C70" stroke-width="2" fill="none" opacity="0.85">
+    <polygon points="0,-44 38,-22 38,22 0,44 -38,22 -38,-22"/>
+    <polygon points="0,-30 26,-15 26,15 0,30 -26,15 -26,-15" stroke-width="1.2" opacity="0.55"/>
+    <line x1="0" y1="44" x2="0" y2="80" stroke-width="2"/>
+  </g>
+
+  <!-- Backbone chain — peptide bonds running diagonally -->
+  <g stroke="#2E7C70" stroke-width="2.4" fill="none" opacity="0.9">
+    <path d="M180 230 L260 280 L340 250 L420 305 L500 275 L580 330 L660 300"/>
+  </g>
+
+  <!-- Amino acid residues along the backbone -->
+  <g>
+    <circle cx="180" cy="230" r="14" fill="url(#atom-fill)" stroke="#1F5C53" stroke-width="1.2"/>
+    <circle cx="260" cy="280" r="16" fill="url(#atom-light)" stroke="#2E7C70" stroke-width="1.4"/>
+    <circle cx="340" cy="250" r="14" fill="url(#atom-fill)" stroke="#1F5C53" stroke-width="1.2"/>
+    <circle cx="420" cy="305" r="18" fill="url(#atom-light)" stroke="#2E7C70" stroke-width="1.4"/>
+    <circle cx="500" cy="275" r="14" fill="url(#atom-fill)" stroke="#1F5C53" stroke-width="1.2"/>
+    <circle cx="580" cy="330" r="16" fill="url(#atom-light)" stroke="#2E7C70" stroke-width="1.4"/>
+    <circle cx="660" cy="300" r="14" fill="url(#atom-fill)" stroke="#1F5C53" stroke-width="1.2"/>
+  </g>
+
+  <!-- Side-chain branches with terminal atoms -->
+  <g stroke="#3A9A8F" stroke-width="1.6" fill="none" opacity="0.75">
+    <line x1="260" y1="280" x2="245" y2="345"/>
+    <line x1="420" y1="305" x2="445" y2="380"/>
+    <line x1="580" y1="330" x2="555" y2="395"/>
+  </g>
+  <g fill="#5FB6A8" stroke="#1F5C53" stroke-width="1">
+    <circle cx="245" cy="345" r="8"/>
+    <circle cx="445" cy="380" r="8"/>
+    <circle cx="555" cy="395" r="8"/>
+  </g>
+
+  <!-- Lower hexagonal ring (cyclic residue, e.g. proline-like) -->
+  <g transform="translate(620 460)" stroke="#2E7C70" stroke-width="1.6" fill="none" opacity="0.7">
+    <polygon points="0,-26 22,-13 22,13 0,26 -22,13 -22,-13"/>
+    <line x1="-22" y1="-13" x2="-50" y2="-30"/>
+  </g>
+
+  <!-- Floating accent dots -->
+  <g fill="#3A9A8F" opacity="0.35">
+    <circle cx="120" cy="420" r="3"/>
+    <circle cx="140" cy="470" r="2"/>
+    <circle cx="95" cy="350" r="2"/>
+    <circle cx="720" cy="180" r="3"/>
+    <circle cx="700" cy="130" r="2"/>
+    <circle cx="745" cy="230" r="2"/>
+  </g>
+
+  <!-- Subtle baseline grid line -->
+  <line x1="40" y1="555" x2="760" y2="555" stroke="#3A9A8F" stroke-width="0.6" opacity="0.25"/>
+  <line x1="40" y1="555" x2="80" y2="555" stroke="#3A9A8F" stroke-width="2" opacity="0.6"/>
+</svg>

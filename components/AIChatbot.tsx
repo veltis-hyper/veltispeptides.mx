@@ -95,11 +95,11 @@ Estoy aquí para responder preguntas técnicas, de pureza HPLC y de protocolos d
 
       // Handle main title (### Title)
       if (line.startsWith('### ')) {
-        return <h4 key={idx} className="text-lg font-bold text-white mt-4 mb-2">{line.replace('### ', '')}</h4>
+        return <h4 key={idx} className="text-lg font-bold text-primary-dark mt-4 mb-2">{line.replace('### ', '')}</h4>
       }
       // Handle sub-title (#### Subtitle)
       if (line.startsWith('#### ')) {
-        return <h5 key={idx} className="text-md font-bold text-purple-300 mt-3 mb-1">{line.replace('#### ', '')}</h5>
+        return <h5 key={idx} className="text-md font-bold text-primary mt-3 mb-1">{line.replace('#### ', '')}</h5>
       }
       // Handle bold texts (**text**)
       const boldRegex = /\*\*(.*?)\*\*/g
@@ -110,7 +110,7 @@ Estoy aquí para responder preguntas técnicas, de pureza HPLC y de protocolos d
         if (match.index > lastIndex) {
           parts.push(line.substring(lastIndex, match.index))
         }
-        parts.push(<strong key={match.index} className="text-pink-400 font-semibold">{match[1]}</strong>)
+        parts.push(<strong key={match.index} className="text-primary-dark font-semibold">{match[1]}</strong>)
         lastIndex = boldRegex.lastIndex
       }
       if (lastIndex < line.length) {
@@ -122,7 +122,7 @@ Estoy aquí para responder preguntas técnicas, de pureza HPLC y de protocolos d
       // Handle bullet points (- item or 1. item)
       if (line.trim().startsWith('- ') || line.trim().startsWith('* ')) {
         return (
-          <li key={idx} className="ml-4 list-disc text-purple-200 mb-1">
+          <li key={idx} className="ml-4 list-disc text-text-primary mb-1">
             {hasParts ? parts : line.replace(/^[-*]\s+/, '')}
           </li>
         )
@@ -130,7 +130,7 @@ Estoy aquí para responder preguntas técnicas, de pureza HPLC y de protocolos d
       if (/^\d+\.\s+/.test(line.trim())) {
         const itemContent = line.replace(/^\d+\.\s+/, '')
         return (
-          <li key={idx} className="ml-4 list-decimal text-purple-200 mb-1">
+          <li key={idx} className="ml-4 list-decimal text-text-primary mb-1">
             {hasParts ? parts : itemContent}
           </li>
         )
@@ -139,14 +139,14 @@ Estoy aquí para responder preguntas técnicas, de pureza HPLC y de protocolos d
       // Handle italic alerts (*italic*)
       if (line.startsWith('*') && line.endsWith('*')) {
         return (
-          <p key={idx} className="text-sm text-pink-500/90 italic mt-3 border-l border-pink-500/30 pl-3 py-1">
+          <p key={idx} className="text-sm text-text-muted italic mt-3 border-l-2 border-primary pl-3 py-1">
             {line.replace(/\*/g, '')}
           </p>
         )
       }
 
       return (
-        <p key={idx} className="mb-2 leading-relaxed text-purple-200 text-sm">
+        <p key={idx} className="mb-2 leading-relaxed text-text-primary text-sm">
           {hasParts ? parts : renderedLine}
         </p>
       )
@@ -159,13 +159,13 @@ Estoy aquí para responder preguntas técnicas, de pureza HPLC y de protocolos d
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="group relative flex items-center gap-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white px-5 py-4 rounded-full shadow-[0_0_25px_rgba(168,85,247,0.4)] hover:shadow-[0_0_35px_rgba(236,72,153,0.6)] transition-all duration-300 transform hover:scale-105 active:scale-95"
+          className="group relative flex items-center gap-3 bg-primary hover:bg-primary-dark text-white px-5 py-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 active:scale-95"
           id="ai-chatbot-launcher"
         >
           {/* Pulsing ring indicator */}
           <span className="absolute -top-1 -right-1 flex h-4 w-4">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-4 w-4 bg-pink-500 border border-white"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-light opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-4 w-4 bg-primary-dark border border-white"></span>
           </span>
           {/* Chat Icon SVG */}
           <svg
@@ -190,19 +190,19 @@ Estoy aquí para responder preguntas técnicas, de pureza HPLC y de protocolos d
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="w-[380px] sm:w-[420px] h-[580px] bg-black/90 border border-purple-500/30 rounded-2xl shadow-[0_0_50px_rgba(168,85,247,0.25)] flex flex-col overflow-hidden backdrop-blur-xl animate-fade-in transition-all duration-300">
+        <div className="w-[380px] sm:w-[420px] h-[580px] bg-white border border-border-primary rounded-2xl shadow-xl flex flex-col overflow-hidden animate-fade-in transition-all duration-300">
           {/* Header */}
-          <div className="bg-gradient-to-r from-purple-950/80 to-black p-4 border-b border-purple-500/20 flex justify-between items-center">
+          <div className="bg-bg-alt p-4 border-b border-border-primary flex justify-between items-center">
             <div className="flex items-center gap-3">
               <div className="relative">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-purple-500 to-pink-600 flex items-center justify-center font-bold text-white shadow-[0_0_10px_rgba(168,85,247,0.5)]">
+                <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center font-bold text-white shadow-sm">
                   V
                 </div>
-                <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-black rounded-full"></div>
+                <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></div>
               </div>
               <div>
-                <h3 className="font-bold text-white text-md tracking-wide">Veltis AI</h3>
-                <span className="text-xs text-purple-300 flex items-center gap-1">
+                <h3 className="font-bold text-text-primary text-md tracking-wide">Veltis AI</h3>
+                <span className="text-xs text-text-muted flex items-center gap-1">
                   <span className="inline-block w-1.5 h-1.5 bg-green-500 rounded-full"></span>
                   Asistente Científico
                 </span>
@@ -211,7 +211,7 @@ Estoy aquí para responder preguntas técnicas, de pureza HPLC y de protocolos d
             {/* Close Button */}
             <button
               onClick={() => setIsOpen(false)}
-              className="text-purple-400 hover:text-white transition duration-200 p-1.5 hover:bg-white/10 rounded-lg"
+              className="text-text-muted hover:text-text-primary transition duration-200 p-1.5 hover:bg-black/5 rounded-lg"
             >
               <svg
                 className="w-5 h-5"
@@ -226,17 +226,17 @@ Estoy aquí para responder preguntas técnicas, de pureza HPLC y de protocolos d
           </div>
 
           {/* Messages Area */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-purple-900/50">
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-bg-alt">
             {messages.map((msg, index) => (
               <div
                 key={index}
                 className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 <div
-                  className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed shadow-lg ${
+                  className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed shadow-sm ${
                     msg.role === 'user'
-                      ? 'bg-gradient-to-br from-purple-600/80 to-pink-600/80 text-white rounded-br-none border border-pink-500/20 shadow-[0_0_15px_rgba(236,72,153,0.15)]'
-                      : 'bg-gradient-to-b from-purple-950/40 to-black/60 text-purple-100 rounded-bl-none border border-purple-500/10 shadow-[0_0_15px_rgba(168,85,247,0.05)]'
+                      ? 'bg-primary text-white rounded-br-none border border-primary-dark'
+                      : 'bg-bg-alt text-text-primary rounded-bl-none border border-border-primary'
                   }`}
                 >
                   {renderMessageContent(msg.content)}
@@ -245,11 +245,11 @@ Estoy aquí para responder preguntas técnicas, de pureza HPLC y de protocolos d
             ))}
             {isLoading && (
               <div className="flex justify-start">
-                <div className="bg-gradient-to-b from-purple-950/40 to-black/60 border border-purple-500/10 rounded-2xl rounded-bl-none px-5 py-3 text-purple-300 flex items-center gap-2 shadow-lg">
-                  <span className="w-1.5 h-1.5 bg-pink-500 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
-                  <span className="w-1.5 h-1.5 bg-pink-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
-                  <span className="w-1.5 h-1.5 bg-pink-500 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
-                  <span className="text-xs text-purple-400 ml-1">Analizando bases de datos...</span>
+                <div className="bg-bg-alt border border-border-primary rounded-2xl rounded-bl-none px-5 py-3 text-text-muted flex items-center gap-2 shadow-sm">
+                  <span className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></span>
+                  <span className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></span>
+                  <span className="w-1.5 h-1.5 bg-primary rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></span>
+                  <span className="text-xs text-text-muted ml-1">Analizando bases de datos...</span>
                 </div>
               </div>
             )}
@@ -258,14 +258,14 @@ Estoy aquí para responder preguntas técnicas, de pureza HPLC y de protocolos d
 
           {/* Quick Actions Panel */}
           {messages.length === 1 && !isLoading && (
-            <div className="px-4 py-2 bg-purple-950/10 border-t border-purple-500/5">
-              <p className="text-[11px] uppercase tracking-widest text-purple-400 mb-2 font-medium">Consultas rápidas:</p>
+            <div className="px-4 py-2 bg-bg-alt border-t border-border-primary">
+              <p className="text-[11px] uppercase tracking-widest text-text-muted mb-2 font-medium">Consultas rápidas:</p>
               <div className="flex flex-wrap gap-1.5">
                 {quickQuestions.map((q, idx) => (
                   <button
                     key={idx}
                     onClick={() => handleSend(q.query)}
-                    className="text-xs bg-purple-950/40 hover:bg-purple-900/60 border border-purple-500/20 text-purple-200 hover:text-white px-3 py-1.5 rounded-lg transition duration-200 text-left active:scale-95"
+                    className="text-xs bg-white hover:bg-bg-warm border border-border-primary text-text-primary px-3 py-1.5 rounded-lg transition duration-200 text-left active:scale-95 shadow-sm"
                   >
                     {q.label}
                   </button>
@@ -275,7 +275,7 @@ Estoy aquí para responder preguntas técnicas, de pureza HPLC y de protocolos d
           )}
 
           {/* Input Area */}
-          <div className="p-4 border-t border-purple-500/20 bg-black/40">
+          <div className="p-4 border-t border-border-primary bg-bg-warm">
             <form
               onSubmit={(e) => {
                 e.preventDefault()
@@ -288,12 +288,12 @@ Estoy aquí para responder preguntas técnicas, de pureza HPLC y de protocolos d
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Escribe tu pregunta de investigación..."
-                className="flex-1 bg-purple-950/20 focus:bg-purple-950/30 border border-purple-500/20 focus:border-pink-500/50 rounded-xl px-4 py-3 text-sm text-white placeholder-purple-400/60 focus:outline-none focus:ring-1 focus:ring-pink-500/30 transition duration-200"
+                className="flex-1 bg-white focus:bg-white border border-border-primary focus:border-primary rounded-xl px-4 py-3 text-sm text-text-primary placeholder-text-muted focus:outline-none focus:ring-1 focus:ring-primary transition duration-200 shadow-sm"
                 disabled={isLoading}
               />
               <button
                 type="submit"
-                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white p-3 rounded-xl transition duration-200 shadow-[0_0_15px_rgba(168,85,247,0.3)] disabled:opacity-50 active:scale-95 flex items-center justify-center"
+                className="bg-primary hover:bg-primary-dark text-white p-3 rounded-xl transition duration-200 shadow-sm disabled:opacity-50 active:scale-95 flex items-center justify-center"
                 disabled={isLoading || !input.trim()}
               >
                 <svg
@@ -313,7 +313,7 @@ Estoy aquí para responder preguntas técnicas, de pureza HPLC y de protocolos d
               </button>
             </form>
             {/* Regulatory Disclaimer */}
-            <p className="text-[10px] text-purple-400/70 text-center mt-3 leading-snug">
+            <p className="text-[10px] text-text-muted text-center mt-3 leading-snug">
               ⚠️ <strong>Disclaimer:</strong> Moléculas para uso exclusivo de investigación analítica in vitro y preclínica. No aptas para consumo humano ni uso clínico.
             </p>
           </div>

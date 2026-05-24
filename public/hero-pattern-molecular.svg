@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Veltis molecular hexagonal pattern">
+  <title>Veltis · Patrón molecular hexagonal</title>
+  <desc>Retícula de anillos hexagonales (referencia química/peptídica) sobre teal Veltis.</desc>
+  <defs>
+    <pattern id="hex-small" x="0" y="0" width="48" height="41.57" patternUnits="userSpaceOnUse">
+      <polygon points="24,1.5 45,13.7 45,38.0 24,50.2 3,38.0 3,13.7" fill="none" stroke="#5BA199" stroke-width="0.5" opacity="0.42"/>
+      <circle cx="24" cy="25.85" r="0.6" fill="#7BC4B8" opacity="0.55"/>
+    </pattern>
+    <pattern id="hex-large" x="0" y="0" width="160" height="138.56" patternUnits="userSpaceOnUse" patternTransform="translate(24 0)">
+      <polygon points="80,4 152,46 152,128 80,170 8,128 8,46" fill="none" stroke="#7BC4B8" stroke-width="1.0" opacity="0.18"/>
+      <polygon points="80,28 128,56 128,112 80,140 32,112 32,56" fill="none" stroke="#7BC4B8" stroke-width="0.6" opacity="0.10"/>
+    </pattern>
+    <radialGradient id="vignette" cx="50%" cy="42%" r="65%">
+      <stop offset="0%" stop-color="#2C8077" stop-opacity="0"/>
+      <stop offset="65%" stop-color="#1a5c57" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#0F4640" stop-opacity="0.55"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="#1a5c57"/>
+  <rect width="1600" height="900" fill="url(#hex-small)"/>
+  <rect width="1600" height="900" fill="url(#hex-large)"/>
+  <rect width="1600" height="900" fill="url(#vignette)"/>
+</svg>

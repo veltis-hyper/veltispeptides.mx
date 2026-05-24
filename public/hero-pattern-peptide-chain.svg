@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Veltis peptide chain pattern">
+  <title>Veltis · Patrón cadena peptídica</title>
+  <desc>Cadenas de aminoácidos con enlaces peptídicos sobre teal Veltis.</desc>
+  <defs>
+    <pattern id="peptide-row" x="0" y="0" width="240" height="120" patternUnits="userSpaceOnUse">
+      <!-- backbone line -->
+      <path d="M 0 60 L 240 60" stroke="#7BC4B8" stroke-width="0.8" opacity="0.22" fill="none"/>
+      <!-- amino acid node 1 (alpha-carbon + R group up) -->
+      <circle cx="40" cy="60" r="5" fill="none" stroke="#7BC4B8" stroke-width="0.9" opacity="0.45"/>
+      <line x1="40" y1="55" x2="40" y2="36" stroke="#7BC4B8" stroke-width="0.6" opacity="0.32"/>
+      <circle cx="40" cy="32" r="3" fill="#7BC4B8" opacity="0.42"/>
+      <!-- peptide bond: C=O / N-H representation -->
+      <line x1="45" y1="60" x2="80" y2="60" stroke="#7BC4B8" stroke-width="0.6" opacity="0.30"/>
+      <line x1="60" y1="56" x2="60" y2="64" stroke="#5BA199" stroke-width="0.6" opacity="0.45"/>
+      <!-- amino acid node 2 (R group down) -->
+      <circle cx="100" cy="60" r="5" fill="none" stroke="#7BC4B8" stroke-width="0.9" opacity="0.45"/>
+      <line x1="100" y1="65" x2="100" y2="84" stroke="#7BC4B8" stroke-width="0.6" opacity="0.32"/>
+      <circle cx="100" cy="88" r="3" fill="#7BC4B8" opacity="0.42"/>
+      <!-- peptide bond -->
+      <line x1="105" y1="60" x2="140" y2="60" stroke="#7BC4B8" stroke-width="0.6" opacity="0.30"/>
+      <line x1="120" y1="56" x2="120" y2="64" stroke="#5BA199" stroke-width="0.6" opacity="0.45"/>
+      <!-- amino acid node 3 (R group up) -->
+      <circle cx="160" cy="60" r="5" fill="none" stroke="#7BC4B8" stroke-width="0.9" opacity="0.45"/>
+      <line x1="160" y1="55" x2="160" y2="36" stroke="#7BC4B8" stroke-width="0.6" opacity="0.32"/>
+      <circle cx="160" cy="32" r="3" fill="#7BC4B8" opacity="0.42"/>
+      <!-- peptide bond -->
+      <line x1="165" y1="60" x2="200" y2="60" stroke="#7BC4B8" stroke-width="0.6" opacity="0.30"/>
+      <line x1="180" y1="56" x2="180" y2="64" stroke="#5BA199" stroke-width="0.6" opacity="0.45"/>
+      <!-- amino acid node 4 (R group down) -->
+      <circle cx="220" cy="60" r="5" fill="none" stroke="#7BC4B8" stroke-width="0.9" opacity="0.45"/>
+      <line x1="220" y1="65" x2="220" y2="84" stroke="#7BC4B8" stroke-width="0.6" opacity="0.32"/>
+      <circle cx="220" cy="88" r="3" fill="#7BC4B8" opacity="0.42"/>
+    </pattern>
+    <pattern id="peptide-stack" x="0" y="0" width="240" height="240" patternUnits="userSpaceOnUse" patternTransform="translate(0 -30)">
+      <rect width="240" height="240" fill="url(#peptide-row)"/>
+      <g transform="translate(120 120)">
+        <rect width="240" height="120" fill="url(#peptide-row)"/>
+      </g>
+    </pattern>
+    <radialGradient id="vignette" cx="50%" cy="42%" r="65%">
+      <stop offset="0%" stop-color="#2C8077" stop-opacity="0"/>
+      <stop offset="65%" stop-color="#1a5c57" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#0F4640" stop-opacity="0.55"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="#1a5c57"/>
+  <rect width="1600" height="900" fill="url(#peptide-stack)"/>
+  <rect width="1600" height="900" fill="url(#vignette)"/>
+</svg>

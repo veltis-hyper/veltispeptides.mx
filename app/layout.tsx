@@ -1,6 +1,19 @@
 import Script from 'next/script'
 import './globals.css'
 import { Metadata } from 'next'
+import { Neuton, Manrope } from 'next/font/google'
+
+const neuton = Neuton({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "700", "800"],
+  variable: "--font-neuton",
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-manrope",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.veltispeptides.mx'),
@@ -52,7 +65,7 @@ export default function RootLayout({
           </>
         )}
       </head>
-      <body className="antialiased bg-black text-white min-h-screen">
+      <body className={`${manrope.className} ${manrope.variable} ${neuton.variable} antialiased bg-bg-warm text-text-primary min-h-screen`}>
         {children}
       </body>
     </html>
